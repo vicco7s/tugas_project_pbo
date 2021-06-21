@@ -7,7 +7,10 @@ public class main {
         System.out.println("--- Informasi Negara dan serta Provinsinya ---");
         System.out.println("----------------------------------------------");
 
+        //object 1 input kode negara
         Negara nr1 = new Negara("+62"); //membuat object yg di panggila dari class Negara yang berada construktor
+
+        // object 2 input data negara
         Negara nr2 = new Negara(); // memanggil object
         nr2.setNama_negara("Indonesia"); //input data
         nr2.setJumlah_penduduk(27300);
@@ -19,12 +22,19 @@ public class main {
         nr2.setIbu_kota("Jakarta");
         nr2.setPnb(496399);
         nr2.info();
+
+        //object 3 input pendapatan bruto
         Negara nr3 = new Negara(496399); // memanggil object sekaligus menginput
 
         System.out.println("");
 
+        // object4 input data yang sama
         Negara pr1 = new Negara("+62");
+
+        // object 5 input data yang sama
         Negara prl1 = new Negara(496399);
+
+        // object 6 menginput data negara sekaligus provinsi
         Provinsi pr = new Provinsi(); // membuat object yang di panggil di class provinsi
         pr.setNama_negara("Indonesia"); //input data
         pr.setJumlah_penduduk(27300);
@@ -39,9 +49,6 @@ public class main {
         pr.setIbu_kotaprov("Banjarmasin");
         pr.setPendapatan(5000);
         pr.tampil();
-
-
-
 
 
     }
