@@ -1,12 +1,43 @@
 package model; // import dari sebuah package model dari class
 
+import java.text.ParseException;
+
 public class Provinsi extends Negara{
     // atribut provinsi
-    private String kode_provinsi;
-    private String ibu_kotaprov;
+    private String kode_provinsi, nama_negara;
+    private String ibu_kotaprov,namaprovin;
     private int Pendapatan;
 
+    public Provinsi(String nama_negara, String kode_provin, String namaprovin, String ibu_kota, int pendapatan) {
+        super(nama_negara, kode_provin, namaprovin, ibu_kota, pendapatan);
+        this.nama_negara = nama_negara;
+        this.kode_provinsi = kode_provin;
+        this.namaprovin = namaprovin;
+        this.ibu_kotaprov = ibu_kota;
+        this.Pendapatan = pendapatan;
+    }
+
+
     //method getter and setter
+
+    @Override
+    public String getNama_negara() {
+        return nama_negara;
+    }
+
+    @Override
+    public void setNama_negara(String nama_negara) {
+        this.nama_negara = nama_negara;
+    }
+
+    public String getNamaprovin() {
+        return namaprovin;
+    }
+
+    public void setNamaprovin(String namaprovin) {
+        this.namaprovin = namaprovin;
+    }
+
     public String getKode_provinsi() {
         return kode_provinsi;
     }
@@ -31,40 +62,17 @@ public class Provinsi extends Negara{
         Pendapatan = pendapatan;
     }
 
-    //construktor
-    public Provinsi() {
-        kode_provinsi = getKode_provinsi();
-        ibu_kotaprov = getIbu_kotaprov();
-        Pendapatan = getPendapatan();
-    }
-
-    public Provinsi(String nama_negara, int jumlah_penduduk, String benua, String bahasa, double gdp, String lagu_kebangsaan, String ibu_kota, String organisasi, String kode_provinsi, String ibu_kotaprov, int pendapatan) {
-        super(nama_negara, jumlah_penduduk, benua, bahasa, gdp, lagu_kebangsaan, ibu_kota, organisasi);
-        this.kode_provinsi = kode_provinsi;
-        this.ibu_kotaprov = ibu_kotaprov;
-        Pendapatan = pendapatan;
-    }
 
     //method
     public void tampil() {
-        System.out.println("nama Negara : "+getNama_negara());
-        System.out.println("jumlah Penduduk : "+getJumlah_penduduk());
-        System.out.println("bahasa : "+getBahasa());
-        System.out.println("gdp Negara : "+getGdp());
-        System.out.println("Lagu Negara : "+getLagu_kebangsaan());
-        System.out.println("Ibu Kota Negara : "+getIbu_kota());
-        System.out.println("Organisasi negara : "+getOrganisasi());
-        System.out.println("Status Bantuan : "+nGdp());
-        System.out.println("pendapatan perkapital : "+ppk()+" $");
-        System.out.println("----------------//---------------------");
+        System.out.println("Nama Negara : "+nama_negara);
         System.out.println("Kode Provinsi : "+kode_provinsi);
+        System.out.println("Nama provinsi : "+namaprovin);
         System.out.println("Kota prov : "+ibu_kotaprov);
         System.out.println("pendapatan : "+Pendapatan);
-        System.out.println("Pendapatan Provinsi mencakup seluruh penduduk "+getNama_negara()+" : "+method(getPendapatan(),getJumlah_penduduk()));
         System.out.println("Bantuan Negara : "+bntuanNegara());
-        System.out.println("Tambahan pendapatan dari prov : " +method(getPnb(),getPendapatan()));
         System.out.println("pajak prov : " + pjk());
-        System.out.println("pajak Negara : " + pjknegara());
+        System.out.println("bantuan Negara : " + bntuanNegara());
     }
 
     public double pjk(){
@@ -74,27 +82,20 @@ public class Provinsi extends Negara{
         return pjak;
     }
 
-    public double pjknegara(){
-        double pjk,persen;
-        persen = getPnb() * 0.05;
-        pjk = getPnb()-persen;
-        return pjk;
-    }
-
     public double bntuanNegara(){
         return pjk()+50000;
     }
 
 
-    //overloading
-    static int method(int pdp,int pndu){
-        int hs;
-        hs = pdp - pndu;
-        return hs;
+    //override
+
+    @Override
+    public double getPnb() {
+        return super.getPnb();
     }
 
-    static double method(double pnb, int pendapatan){
-        return pnb + pendapatan;
+    @Override
+    public void setPnb(double pnb) {
+        super.setPnb(pnb);
     }
-
 }

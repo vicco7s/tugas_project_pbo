@@ -1,5 +1,7 @@
 package model;
 
+import java.text.ParseException;
+
 public class Negara {
 
     //membuat sebuah atribut
@@ -11,19 +13,10 @@ public class Negara {
     private double gdp;
     private String lagu_kebangsaan;
     private String ibu_kota;
-    private String organisasi;
     private double pnb;
 
 
     //method and getter setter
-
-    public String getOrganisasi() {
-        return organisasi;
-    }
-
-    public void setOrganisasi(String organisasi) {
-        this.organisasi = organisasi;
-    }
 
     public String getIbu_kota() {
         return ibu_kota;
@@ -98,29 +91,25 @@ public class Negara {
 
 
   //constructor
-    public Negara() {
 
+    public Negara(String kode_negara) {
+        this.kode_negara = kode_negara;
+        System.out.println("Kode Negara : "+kode_negara);
     }
 
-    public Negara(double pnb) {
-        this.pnb = pnb;
-        System.out.println("Pendapatan Bruto : "+pnb);
-    }
-
-    public Negara(String nama_negara, int jumlah_penduduk, String benua, String bahasa, double gdp, String lagu_kebangsaan, String ibu_kota, String organisasi) {
+    public Negara(String nama_negara, int jumlah_penduduk, String benua, String bahasa, double gdp, String lagu_kebangsaan, double pnb, String ibu_kota) throws ParseException {
         this.nama_negara = nama_negara;
         this.jumlah_penduduk = jumlah_penduduk;
         this.benua = benua;
         this.bahasa = bahasa;
         this.gdp = gdp;
         this.lagu_kebangsaan = lagu_kebangsaan;
+        this.pnb = pnb;
         this.ibu_kota = ibu_kota;
-        this.organisasi = organisasi;
     } // construktor yang akan menyimpan sebuah atribut kedalam consturktor
 
-    public Negara(String kode_negara) {
-        this.kode_negara = kode_negara;
-        System.out.println("Kode Negara : "+kode_negara);
+    //bluprint
+    public Negara(String nama_negara, String kode_provin, String namaprovin, String ibu_kota, int pendapatan) {
     }
 
     //method
@@ -141,7 +130,6 @@ public class Negara {
         System.out.println("gdp Negara : "+gdp);
         System.out.println("Lagu Negara : "+lagu_kebangsaan);
         System.out.println("Ibu Kota Negara : "+ibu_kota);
-        System.out.println("Organisasi negara : "+organisasi);
         System.out.println("Status Bantuan : "+nGdp());
         System.out.println("pendapatan perkapital : "+ppk()+" $");
     }
